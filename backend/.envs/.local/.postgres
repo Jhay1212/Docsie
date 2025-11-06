@@ -1,0 +1,7 @@
+# PostgreSQL
+# ------------------------------------------------------------------------------
+POSTGRES_HOST="127.0.0.1"
+POSTGRES_PORT="5432"
+POSTGRES_DB="docsie"
+POSTGRES_USER="jhay"
+POSTGRES_PASSWORD="Sorelia12zeef"
