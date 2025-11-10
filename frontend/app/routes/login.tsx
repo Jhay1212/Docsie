@@ -12,7 +12,7 @@ export function meta({}:  Route.MetaArgs) {
 const Login = () => {
   return (
     <div className='w-screen h-screen'>
-      <div className="flex-center-col items-center">
+      <div className="flex-center-col h-full w-full items-center">
         <LoginModal />
       </div>
       

@@ -4,6 +4,7 @@ import { useParams } from 'react-router'
 import Editor from '~/editor';
 import api from '~/utils/auth';
 import type { Document } from '~/types/Document';
+
 const Documents = () => {
   const { documentId } = useParams();
   const [isLoading, setIsLoading] = useState(true);
@@ -30,7 +31,16 @@ const Documents = () => {
       <h1 className="text-red-800 font-semibold">
         Document {documentId}
       </h1>
-      <Editor />
+      <Editor
+        title="sdasd"
+        slug='test'
+        owner_id={1}
+        text="test"
+        id="123"
+        date_created="test"
+        date_modified="test"
+        is_public={false}
+      />
     </div>
   )
 }

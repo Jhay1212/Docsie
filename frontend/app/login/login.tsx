@@ -1,6 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const LoginModal = () => {
     const [form, setForm] = useState({ username: "", password: "" });
@@ -42,8 +42,11 @@ const LoginModal = () => {
     }
     return (
     
-      <div className='w-[40%] h-[50%] border-double border-4 border-white'>
-            <h1 className='text-white font-extrabold py-3 pl-5 text-3xl'>Login</h1>
+        <div className='w-[400px] h-[720px] border-double bg-linear-to-b
+        from-violet-900/20 via-blue-900 to-violet-700/10 
+        rounded-md border-white border-5 shadow-2xl
+         px-10 '>
+            <h1 className='text-center text-2xl font-extrabold tracking-wide mt-5 text-white'>Login</h1>
             <p className="text-red-500 text-left px-4 py-5">{errors}</p>
             <p className="text-green-500 text-left px-4 py-5">{message}</p>
 
@@ -70,7 +73,10 @@ const LoginModal = () => {
                     value={form.password}
                     className='border rounded-md p-2 w-full' />
               </div>
-              <button className='bg-green-800 px-5 py-10 text-white mx-auto rounded-md'>Submit</button>
+                <button className='bg-green-800 px-5 py-10 text-white mx-auto rounded-md'>Submit</button>
+                 <p className='pt-2 tracking-wider'>Need an account? <span className='text-blue-400 uppercase'>
+                                  <Link to="/signup">Signup </Link>
+                                  </span>now</p>
           </form>
       
     </div>

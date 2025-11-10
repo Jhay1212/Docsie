@@ -6,23 +6,55 @@ import { HistoryPlugin } from '@lexical/react/LexicalHistoryPlugin'
 import { OnChangePlugin } from '@lexical/react/LexicalOnChangePlugin'
 import { AutoFocusPlugin } from '@lexical/react/LexicalAutoFocusPlugin'
 import { LexicalErrorBoundary } from '@lexical/react/LexicalErrorBoundary'
-import { $getRoot, $getSelection } from 'lexical'
+import { $getRoot, $getSelection} from 'lexical'
+import { type Document } from './types/Document'
+import { format } from 'path'
+
+type DocumentProps = {
+  id: string
+  title: string
+  text: string
+  date_created: string
+  date_modified: string
+  is_public: boolean
+}
 
 const theme = {
   paragraph: 'text-base leading-6 mb-2 text-gray-800'
 }
 
+
 function onError(error: Error) {
   console.error(error)
 }
 
-const Editor = () => {
+const Editor = ({ id, title, text, date_created, date_modified, is_public }: Document) => {
   const [value, setValue] = useState('')
 
+  const initialContent = JSON.stringify({
+    root: {
+      children: [
+        {
+          details: {text},
+          format: 'paragraph',
+          mode: 'normal',
+          style: "",
+          text: text,
+          version: 1
+        }
+      ],
+      direction: 'ltr',
+      format: 'normal',
+      indent: 0,
+      type: 'root',
+      version: 1
+    }
+  })
   const initialConfig = {
     namespace: 'MyEditor',
     theme,
     onError,
+    editorState: initialContent
   }
 
   const handleChange = (editorState: any) => {
@@ -43,7 +75,7 @@ const Editor = () => {
               <ContentEditable className="h-[90%] outline-none" />
             }
             placeholder={<div className="text-gray-400">Enter text here</div>}
-            ErrorBoundary={LexicalErrorBoundary}
+              ErrorBoundary={LexicalErrorBoundary}
             />
         <HistoryPlugin />
         <AutoFocusPlugin />

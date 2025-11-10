@@ -52,7 +52,7 @@ const SignupModal = () => {
        
     }
   return (
-      <div className="modal w-[400px] h-[720px] bg-violet-900/10 
+      <div className="modal w-[400px] h-[720px] bg-linear-to-b  from-violet-900/20 via-blue-900 to-violet-700/10 
     rounded-md border-white border-5 shadow-2xl
     ">
           <div className="flex-center-col">

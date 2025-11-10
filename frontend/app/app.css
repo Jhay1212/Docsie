@@ -21,5 +21,8 @@ body {
   .flex-center-col {
     @apply flex flex-col items-center justify-center;
   }
+  .full-screen {
+    @apply w-screen h-screen;
+  }
   
 }
