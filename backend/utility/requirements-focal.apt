@@ -2,7 +2,7 @@
 #build-essential metapackage install: make, gcc, g++,
 build-essential
 #required to translate
-gettext
+gettex
 python3-dev
 
 ##shared dependencies of:

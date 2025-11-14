@@ -128,7 +128,6 @@ dependencies = [
     { name = "gunicorn" },
     { name = "hiredis" },
     { name = "pillow" },
-    { name = "psycopg", extra = ["c"] },
     { name = "python-slugify" },
     { name = "redis" },
     { name = "uvicorn", extra = ["standard"] },
@@ -180,7 +179,6 @@ requires-dist = [
     { name = "gunicorn", specifier = "==23.0.0" },
     { name = "hiredis", specifier = "==3.3.0" },
     { name = "pillow", specifier = "==12.0.0" },
-    { name = "psycopg", extras = ["c"], specifier = "==3.2.11" },
     { name = "python-slugify", specifier = "==8.0.4" },
     { name = "redis", specifier = "==6.4.0" },
     { name = "uvicorn", extras = ["standard"], specifier = "==0.38.0" },
@@ -1345,9 +1343,6 @@ wheels = [
 binary = [
     { name = "psycopg-binary", marker = "implementation_name != 'pypy'" },
 ]
-c = [
-    { name = "psycopg-c", marker = "implementation_name != 'pypy'" },
-]
 
 [[package]]
 name = "psycopg-binary"
@@ -1364,12 +1359,6 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/d4/75/304e133d3ab1a49602616192edb81f603ed574f79966449105f2e200999d/psycopg_binary-3.2.11-cp313-cp313-musllinux_1_2_x86_64.whl", hash = "sha256:f5e7415b5d0f58edf2708842c66605092df67f3821161d861b09695fc326c4de", size = 3586213, upload-time = "2025-10-18T22:46:19.523Z" },
     { url = "https://files.pythonhosted.org/packages/c0/10/c47cce42fa3c37d439e1400eaa5eeb2ce53dc3abc84d52c8a8a9e544d945/psycopg_binary-3.2.11-cp313-cp313-win_amd64.whl", hash = "sha256:6b9632c42f76d5349e7dd50025cff02688eb760b258e891ad2c6428e7e4917d5", size = 2912997, upload-time = "2025-10-18T22:46:24.978Z" },
 ]
-
-[[package]]
-name = "psycopg-c"
-version = "3.2.11"
-source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/4a/64/68900809282759f5c573f17873c65287348cd2a8c8dff3e81377b7b6829e/psycopg_c-3.2.11.tar.gz", hash = "sha256:b3104bcbd62e34cfc736bbdaa4cdcb7e9bfc9a4c0a1f0992cac0f68ea941a450", size = 608046, upload-time = "2025-10-18T22:48:29.646Z" }
 
 [[package]]
 name = "ptyprocess"

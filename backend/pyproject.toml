@@ -183,7 +183,6 @@ dependencies = [
     "gunicorn==23.0.0",
     "hiredis==3.3.0",
     "pillow==12.0.0",
-    "psycopg[c]==3.2.11",
     "python-slugify==8.0.4",
     "redis==6.4.0",
     "uvicorn-worker==0.4.0",

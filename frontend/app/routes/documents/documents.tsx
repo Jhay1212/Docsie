@@ -7,6 +7,7 @@ import type { Document } from '~/types/Document';
 
 const Documents = () => {
   const { documentId } = useParams();
+  const [messages, setMessages] = useState();
   const [isLoading, setIsLoading] = useState(true);
   
   const [documents, setDocuments] = useState<Document>();
@@ -28,6 +29,7 @@ const Documents = () => {
   console.log(documents);
   return (
     <div className='w-screen h-screen'>
+    
       <h1 className="text-red-800 font-semibold">
         Document {documentId}
       </h1>

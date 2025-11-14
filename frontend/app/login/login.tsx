@@ -1,6 +1,7 @@
 import { useState } from "react"
 import axios from "axios"
 import { Link, useNavigate } from "react-router";
+import {toast} from 'react-toastify'
 
 const LoginModal = () => {
     const [form, setForm] = useState({ username: "", password: "" });
@@ -28,13 +29,15 @@ const LoginModal = () => {
             const response = await axios.post("http://127.0.0.1:8000/api/token/", form)
             console.log(response.data)
             setMessage("Log in successful!")
+            toast(message);
             localStorage.setItem("access", response.data.access);
             localStorage.setItem("refresh", response.data.refresh);
-            navigate("/");
+            navigate("/documents",{state:  {loggedIn: true}});
 
         } catch (error: any) {
             console.log(error.message)
             setErrors(error.message)
+            toast((error.message))
         }finally {
             resetForm();
         }
@@ -73,10 +76,11 @@ const LoginModal = () => {
                     value={form.password}
                     className='border rounded-md p-2 w-full' />
               </div>
-                <button className='bg-green-800 px-5 py-10 text-white mx-auto rounded-md'>Submit</button>
-                 <p className='pt-2 tracking-wider'>Need an account? <span className='text-blue-400 uppercase'>
-                                  <Link to="/signup">Signup </Link>
-                                  </span>now</p>
+                <button className='bg-green-800 px-12 py-5 text-white mx-auto rounded-md'>Submit</button>
+                 <p className='pt-2 text-sm tracking-wider text-center'>Need an account? 
+                    <span className='text-blue-400 uppercase px-1 font-bold'>
+                    <Link to="/signup">Signup </Link>
+                    </span> now</p>
           </form>
       
     </div>
