@@ -15,11 +15,11 @@ class DocumentViewSet(ModelViewSet):
         serializer.save(owner=self.request.user)
         return super().perform_create(serializer)
     
-    # def get_queryset(self, *args, **kwargs):
-    #     user = self.request.user
-    #     print(user)
-    #     if user.is_anonymous:
-    #         return self.queryset.none()
-    #     return Documents.objects.filter(
-    #         Q(owner_id=user.id)
-    #     ).distinct()
+    def get_queryset(self, *args, **kwargs):
+        user = self.request.user
+        print(user)
+        if user.is_anonymous:
+            return self.queryset.none()
+        return Documents.objects.filter(
+            Q(owner_id=user.id)
+        ).distinct()

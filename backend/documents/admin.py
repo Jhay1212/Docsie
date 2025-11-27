@@ -1,5 +1,7 @@
 from django.contrib import admin
 from .models import Documents
 
-admin.site.register(Documents)
-# Register your models here.
+@admin.register(Documents)
+class DocumentAdmin(admin.ModelAdmin):
+    class Media:
+        list_display = ('id', 'owner_id')

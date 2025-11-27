@@ -8,10 +8,14 @@ class DocumentConsumer(AsyncWebsocketConsumer):
         self.document_id = self.scope['url_route']['kwargs']['id']
         self.room_group_name = f'Document:{self.document_id}'
         self.incoming_user = self.scope['user']
+        self.document = Documents.objects.get(self.document_id)
+        
+        if not self.incoming_user.is_authenticated:
+            self.incoming_user.permission = 2
 
-        if not self.incoming_user in Documents.objects.get(id=self.document_id).collaborator.all():
+        if not self.incoming_user in self.document.collaborator.all() and not self.document.is_public:
             self.close()
-            
+          
         
         await self.channel_layer.group_add(self.document_group_name, self.channel_name)
         await self.accept()
@@ -33,7 +37,21 @@ class DocumentConsumer(AsyncWebsocketConsumer):
             }
         )
     async def rich_text_update(self, event):
+        """ 
+            handles editor changes 
+            # task you should do operational transformation in here in case different user is 
+            
+        """
         await self.send(text_data=event["content"])
+        
+    def send(self, text_data):
+        return
+    
+    async def typing_indicator(self, event, ):
+        if event['user'] != self.incoming_user:
+            await self.send(tex_data=json.dumps({
+                
+            }))
 # class DocumentConsumer(WebsocketConsumer):
     
 #     def connect(self):

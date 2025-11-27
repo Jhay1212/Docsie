@@ -371,8 +371,8 @@ SPECTACULAR_SETTINGS = {
 }
 # Your stuff...
 # ------------------------------------------------------------------------------
-CKEDITOR_5_CUSTOM_CSS = os.path.join(BASE_DIR, "static", "css", "custom.css")
-CKEDITOR_5_FILE_STORAGE = os.path.join(BASE_DIR, "static", "uploads")
+CKEDITOR_5_CUSTOM_CSS = 'css/custom.css'
+CKEDITOR_5_FILE_STORAGE = 'uploads'
 
 
 
