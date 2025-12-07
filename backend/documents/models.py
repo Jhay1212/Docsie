@@ -38,6 +38,7 @@ class Documents(models.Model):
     @property
     def collaborators(self):
         return self.collaborator.all()
+    
     def save(self, *args, **kwargs):
         """
         Override the original save method to set the

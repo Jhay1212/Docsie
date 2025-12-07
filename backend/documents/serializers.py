@@ -3,6 +3,7 @@ from .models import Documents
 
 class DocumentSerializer(serializers.ModelSerializer):
     owner_id = serializers.StringRelatedField()
+    # version_number = serializers
     class Meta:
         model = Documents
         fields = [
